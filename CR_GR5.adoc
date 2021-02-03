@@ -1,1 +1,33 @@
-ça marche zebi
+= Virtualisation et Cloud: Projet Infrastructure VMWare
+Clément PEROT - Derek DURUPT - Hugo PETERMANN
+
+== [.underline red]#1. Présentation du sujet#
+
+.Ce projet à pour but de nous faire decouvrir l'utilisation de VMware vSphere et de créer toute une instance virtuelle fonctionnelle :
+* Déployer et configurer VMware vSphere
+* Créer une planification de sauvegarde pour l'instance d’une machine virtuelle
+* Créer des réseaux virtuels avec des commutateurs standard et distribués vSphere
+* Configurer le stockage virtuel à l'aide du stockage iSCSI
+* Utiliser vSphere client pour créer des machines virtuelles, des modèles, des clones et des instantanés
+* Gérer l'utilisation des ressources de machine virtuelle et gérer les pools de ressources
+
+Pour ce faire nous serons disposés en groupe de trois élèves.
+
+== [.underline red]#2. Installation et Configuration ESXi#
+=== [.underline green]#2.1 Installation ESXi#
+=== [.underline green]#2.2 Configuration vSS#
+
+
+== [.underline red]#3. Installation et Configuration VM Windows Server 2012#
+
+=== [.underline green]#2.1 Installation du serveur#
+=== [.underline green]#2.2 Configuration AD#
+=== [.underline green]#2.3 Configuration DHCP#
+=== [.underline green]#2.4 Configuration Routage virtuel#
+=== [.underline green]#2.5 Configuration NAT#
+=== [.underline green]#2.6 Test de connexion utilisateur#
+=== [.underline green]#2.7 Test des outils de VMWare#
+
+== [.underline red]#4. Installation et Configuration ESXi#
+== [.underline red]#5. Installation et Configuration ESXi#
+== [.underline red]#6. Installation et Configuration ESXi#
