@@ -20,14 +20,37 @@ Pour ce faire nous serons disposés en groupe de trois élèves.
 
 == [.underline red]#3. Installation et Configuration VM Windows Server 2012#
 
-=== [.underline green]#2.1 Installation du serveur#
-=== [.underline green]#2.2 Configuration AD#
-=== [.underline green]#2.3 Configuration DHCP#
-=== [.underline green]#2.4 Configuration Routage virtuel#
-=== [.underline green]#2.5 Configuration NAT#
-=== [.underline green]#2.6 Test de connexion utilisateur#
-=== [.underline green]#2.7 Test des outils de VMWare#
+=== [.underline green]#3.1 Installation du serveur#
+=== [.underline green]#3.2 Configuration AD#
+=== [.underline green]#3.3 Configuration DHCP#
+=== [.underline green]#3.4 Configuration Routage virtuel#
+=== [.underline green]#3.5 Configuration NAT#
+=== [.underline green]#3.6 Test de connexion utilisateur#
+=== [.underline green]#3.7 Test des outils de VMWare#
 
-== [.underline red]#4. Installation et Configuration ESXi#
-== [.underline red]#5. Installation et Configuration ESXi#
-== [.underline red]#6. Installation et Configuration ESXi#
+== [.underline red]#4. Installation vCenter Server Appliance#
+
+=== [.underline green]#4.1 Installation du serveur#
+=== [.underline green]#4.2 Configuration vDS#
+
+== [.underline red]#5. FreeNAS / TrueNAS#
+
+=== [.underline green]#5.1 Installation#
+=== [.underline green]#5.2 Configuration#
+=== [.underline black]#5.2.1 Remarque#
+
+== [.underline red]#6. Clients Windows & Linux#
+
+=== [.underline green]#6.1 Installation#
+=== [.underline green]#6.2 Intégration au domaine AD#
+=== [.underline green]#6.3 Test vMotion#
+
+== [.underline red]#7. Test fonctionalités de vSphere#
+
+=== [.underline green]#7.1 vSphere HA#
+=== [.underline green]#7.2 vSphere Fault Tolerance#
+=== [.underline green]#7.3 SDRS#
+=== [.underline green]#7.4 vSphere DRS#
+=== [.underline green]#7.5 Clones de VM#
+=== [.underline green]#7.6 Modèles de VM#
+=== [.underline green]#7.7 Update Manager#
