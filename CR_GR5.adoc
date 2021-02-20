@@ -1,4 +1,6 @@
-:imagesdir:Images
+ifdef::env-github[]
+:imagesdir: Images/
+endif::[]
 = Virtualisation et Cloud: Projet Infrastructure VMWare
 Clément PEROT - Derek DURUPT - Hugo PETERMANN
 
