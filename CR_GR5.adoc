@@ -1,3 +1,5 @@
+:imagesdir: Images
+
 = Virtualisation et Cloud: Projet Infrastructure VMWare
 Clément PEROT - Derek DURUPT - Hugo PETERMANN
 
@@ -13,7 +15,7 @@ Clément PEROT - Derek DURUPT - Hugo PETERMANN
 
 Pour ce faire nous serons disposés en groupe de trois élèves.
 
-image::./Images/Ajout_Liaison_Montante.JPG[]
+image::Ajout_Liaison_Montante.JPG[]
 
 == [.underline red]#2. Installation et Configuration ESXi#
 === [.underline green]#2.1 Installation ESXi#
