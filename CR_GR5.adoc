@@ -1,4 +1,4 @@
-:imagesdir: Images
+:imagesdir: Projet_Cloud/Images
 
 = Virtualisation et Cloud: Projet Infrastructure VMWare
 Clément PEROT - Derek DURUPT - Hugo PETERMANN
