@@ -1,6 +1,4 @@
-ifdef::env-github[]
 :imagesdir:https://github.com/Kyorakku/Projet_Cloud/blob/main/Images
-endif::[]
 
 = Virtualisation et Cloud: Projet Infrastructure VMWare
 Clément PEROT - Derek DURUPT - Hugo PETERMANN
