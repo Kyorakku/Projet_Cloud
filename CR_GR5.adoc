@@ -14,7 +14,7 @@ Clément PEROT - Derek DURUPT - Hugo PETERMANN
 
 Pour ce faire nous serons disposés en groupe de trois élèves.
 
-image::https://github.com/Kyorakku/Projet_Cloud/blob/main/Images/Ajout_Liaison_Montante.JPG[]
+image::http://github.com/Kyorakku/Projet_Cloud/blob/main/Images/Ajout_Liaison_Montante.JPG[]
 
 == [.underline red]#2. Installation et Configuration ESXi#
 === [.underline green]#2.1 Installation ESXi#
