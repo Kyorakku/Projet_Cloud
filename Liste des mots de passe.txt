@@ -1,0 +1,20 @@
+ESXI-05-01
+IP:192.168.17.81
+Nomdedomaine
+MDP:ESXI-05-01
+
+
+ESXI-05-02
+IP: 192.168.17.82
+Nondedomaine
+MDP: ESXI-05-02
+
+AD-05-01
+IP:192.168.17.83
+MDP: DC-05-01
+
+vCenter
+nom SSO : administrator@vsphere.local
+IP 192.168.17.85:5480
+mdp: Esxi-05-01!
+
