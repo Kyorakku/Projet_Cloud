@@ -1,4 +1,3 @@
-
 = Virtualisation et Cloud: Projet Infrastructure VMWare
 Clément PEROT - Derek DURUPT - Hugo PETERMANN
 :imagesdir: ./Images
@@ -19,44 +18,189 @@ image::Ajout_Liaison_Montante.JPG[]
 
 == [.underline red]#2. Installation et Configuration ESXi#
 === [.underline green]#2.1 Installation ESXi#
+
+Pour commencer ce TP, nous commencerons par installer 2 ESXi qui serons la base de notre environnement de travail par la suite. On provisionnera donc une VM à laquelle s'ajoutera une ISO ESXi 7.0.
+
+Rien de spécial lors de l'installation, attention cependant lors de la configuration à bien choisir qu'une seul carte réseau pour le management.
+
 === [.underline green]#2.2 Configuration vSS#
 
+Il existe deux type de switch virtuel sous WMware, VMware VSS et VMware VDS.
+L'utilisation du VMware VSS est similaire à celle d'un commutateur physique ; La partie management de vSphere ESXi possède ses propres commutateurs virtuels.
 
 == [.underline red]#3. Installation et Configuration VM Windows Server 2012#
 
 === [.underline green]#3.1 Installation du serveur#
+
+[.underline]#Configuration :#
+
+* 1 CPU
+* 2 Go de RAM
+* Windows Server 2012
+* DC : 4irc-05.tpv.cpe.localdomain
+
 === [.underline green]#3.2 Configuration AD#
+
+Un Active Directory est un service qui fourni une centrale d'identification et d'authentification à un réseau d'ordinateurs utilisant aussi bien le système Windows, que MacOs ou encore Linux.
+
+Ce service sera installé sur chacune des VMs windows server qui serviront de contrôleur de domaine et seront cogéré avec un serveur maitre et un serveur esclave.
+
+Lors de la création d'un Active directory il est demandé de choisir un nom pour votre nouvelle "forêt" qui contiendra un ou plusieurs domaine.
+
+Suite à l'installation de l'AD il suffira de donner à vos hôte la bonne adresse IP, la gateway par defaut et le bon serveur DNS et il pourra alors être intégré grâce au login mot de passe de l'administrateur de l'AD ou d'une personne ayant les privilège adéquat. L'ordinateur pourra alors utilisé les différent service associé.
+
 === [.underline green]#3.3 Configuration DHCP#
-=== [.underline green]#3.4 Configuration Routage virtuel#
-=== [.underline green]#3.5 Configuration NAT#
-=== [.underline green]#3.6 Test de connexion utilisateur#
-=== [.underline green]#3.7 Test des outils de VMWare#
+
+Un Dynamic Host Configuration Protocol est un service permettant d'attribuer automatiquement une adresse IP à un hôte.
+
+L'installation se fait de la même façon que l'AD, il suffit de sélectionner le service dans la liste proposé.
+
+On pourra configuré des ranges IP disponible pour les hôtes qui viendront ce connecter au réseau mais aussi privatisé des adresses IP en fonction de l'adresse MAC de chaque carte réseau.
+
+=== [.underline green]#3.4 Configuration Routage virtuel / NAT#
+
+Le routage virtuel servira de connexion direct à Internet en passant par un NAT.
+
+Celui-ci permettra aux hôtes d'accéder à l'extérieur du réseau local.
+
+=== [.underline green]#3.5 Test de connexion utilisateur#
+
+Pour créer un utilisateur, il suffit de se rendre dans l'annuaire de l'AD puis de créer un nouvel objet "user" avec son nom, prénom, etc...
+
+
+L'utilisateur aura alors juste besoin de son login et de son mot de passe pour ouvrir une session sur un des ordinateurs connecté au domaine.
+
+
+=== [.underline green]#3.6 Test des outils de VMware#
+
+[.underline]#VMware tools :#
+VMware Tools est un ensemble de services et de modules qui activent plusieurs fonctionnalités dans les produits VMware.
+
+Il permet notamment une meilleure gestion des systèmes d'exploitation invités et une interaction des utilisateurs plus transparente.
+
+Insérer image d'installation côté vsphere et côté hôte
+
+[.underline]#VM Template :#
+
+Un template ou modèle en français est un enregistrement d'une configuration matérielle d'une VM vierge. En d'autre terme, il s'agit de reproduire le nombre de CPU, RAM, etc... d'une VM pour en produire plusieurs plus facilement au lieu de configurer toutes les VM une par une.
+
+Insérer image
+
+[.underline]#Exportation de VM :#
+
+L'exportation d'une VM consiste à enregistrer la VM à un moment "t" en fichier (OVA ou OVF pour la plupart) pour qu'elle soit transporter par clé usb par exemple ou encore importer sur un systeme de virtualisation différent (une autre instance VMware ou virtual box).
+
+Insérer une export + fichier OVA
+
+[.underline]#VM Cloning :#
+
+A la différence d'un template, un clone de VM et simplement un copier-coller de la VM telle qu'elle. Soit la configuration matérielle et de la configuration des services qui a été fais dessus. Le clonage d'une VM sur différente période pourra donc être différent.
+
+image clonage
+
+[.underline]#Snapshot VM :#
+
+Un snapshot permet de sauvegarder l'état de la VM actuelle et de la conserver à part, cela permet de travailler sur la VM de manière à pouvoir revenir en arrière si il y a un problème.
+Les snapshots sont très utiles dans le cas de serveur fondamentaux comme notre AD par exemple.
+Ainsi on peu effectuer des actions dangereuse sans peur d'altérer le service en production en cas de problème puisqu'il suffira de revenir au snapshot précédant (encore faut-il penser à mettre en place le snapshot).
+
+Insérer image snapshot 
 
 == [.underline red]#4. Installation vCenter Server Appliance#
 
 === [.underline green]#4.1 Installation du serveur#
+
+Le vCenter est une application servant à la gestion de VM et d'appareils virtualisés.
+
+Image de l'installation de petou
+
 === [.underline green]#4.2 Configuration vDS#
+
+demandé petou ?
 
 == [.underline red]#5. FreeNAS / TrueNAS#
 
 === [.underline green]#5.1 Installation#
+
+
+
 === [.underline green]#5.2 Configuration#
+
+L'interface d'un TrueNAS se présente comme suis : 
+
+Insérer photo interface web NAS
+
+Il s'agit d'une interface web disponible sur le vlan de management sur laquelle on peut configurer les différents stockages que l'on a ajouté à la machine.
+Ici on utilisera le NAS comme datastore iSCSI pour les VM de nos ESXI et comme backup.
+
+Insérer configuration
+
 === [.underline black]#5.2.1 Remarque#
+
+A noter que le NAS ne voit pas le stockage sur lequelle est installé l'OS, de ce fait il faudra installer 2 stockage. Le premier qui contiendra l'OS et le deuxième uniquement dédier au stockage.
 
 == [.underline red]#6. Clients Windows & Linux#
 
 === [.underline green]#6.1 Installation#
+
+
+
 === [.underline green]#6.2 Intégration au domaine AD#
+
+Comme présenter plus haut, pour intégrer un hôte dans un domaine AD, il suffit de rentrer le nom de domaine et son mot de passe.
+
+Insérer image domaine ad insertion W10 et Linux.
+
+
 === [.underline green]#6.3 Test vMotion#
+
+Le service vMotion permet une migration à chaud d'une VM, ce qui permet entre autre de ne pas couper le service lors du déplacement de la VM.
+Les principales utilités sont les suivantes :
+
+* Optimiser automatiquement les machines virtuelles au sein de pools de ressources.
+* Effectuer une maintenance matérielle sans planifier d’interruption de service.
+* Déplacer des machines virtuelles de serveurs défaillants ou peu performants et ainsi de retrouver un environnement stable avant une catastrophe.
+
+Insérer image de vMotion
 
 == [.underline red]#7. Test fonctionalités de vSphere#
 
 === [.underline green]#7.1 vSphere HA#
+
+vSphere HA (High Availability) permet de rassembler différentes machines virtuelles en cluster (Groupement), ce qui inclut : 
+
+* D'ajouter un hôte qui communique avec les autre machine du cluster. L'hôte peut-être principal ou secondaire
+* Détection des pannes des hôtes secondaires par l'hôte principal 
+* Actions prédéfinies lors de problèmes d'hôte
+* Surveillance des VM et applications en cas de signaux faibles
+* Surveillance des hôtes secondaires défaillants
+
+insérer image vsphere HA
+
 === [.underline green]#7.2 vSphere Fault Tolerance#
+
+vSphere Fault Tolerance permet d'assuré la disponibilité continue d'une machine virtuelle créant une autre machine virtuelle identique et disponible en permanence pour la remplacer en cas de situation de basculement ou de problème.
+
+Insérer image vSphere fault tolerance
+
 === [.underline green]#7.3 SDRS#
-=== [.underline green]#7.4 vSphere DRS#
-=== [.underline green]#7.5 Clones de VM#
-=== [.underline green]#7.6 Modèles de VM#
-=== [.underline green]#7.7 Update Manager#
+
+SDRS (Storage Distributed Ressource Scheduler) permet d’équilibrer les charges des hôtes grâce au déplacement des machines virtuelles automatiquement grâce au vMotion. Elle va répartir les VM sur les différents hôtes du cluster en fonction de leur utilisation et de leurs ressources.
+
+Insérer image SDRS
+
+=== [.underline green]#7.4 Update Manager#
+
+Update Manager permet de centralisée et d'automatisée la gestion des correctifs et des versions pour les hôtes ESXi et les machines virtuelles.
+
+Update Manager inclut :
+
+* Mise à niveau et correction des hôtes ESXi.
+* Mise à niveau des logiciels tiers sur les hôtes.
+* Mise à niveau du matériel des machines virtuelles et VMware Tools.
+
+Insérer image Update Manager
 
 == [.underline red]#8. Conclusion#
+
+Ce projet nous aura permit de toucher un peu à tous l'environnement vCenter, les NAS ou encore des services principaux AD, DHCP, etc... mais surtout de comprendre les interactions virtuelles entre les différents ESXi et VM.En plus de cela les tenants et aboutissants des différentes configurations virtuelles que soit au niveau réseau ou infrastructure.
