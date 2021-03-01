@@ -64,6 +64,13 @@ Suite à l'installation de l'AD il suffira de donner à vos hôte la bonne adres
 
 image::https://drive.google.com/uc?id=1jXjzdlMNQ6ilEYm2CVOZKYbh6sIgUmSa[]
 
+Ajout d'un second AD:
+
+image::https://drive.google.com/uc?id=1P0BNsAdM2lCx6Bwq48NWlSIbUwFkgLyB
+
+Les 2 AD doivent être sur le même réseau. De plus, le dns préféré de l'AD 2 doit être renseigné, il s'agit de l'IP de l'AD 1.
+
+
 === [.underline green]#3.3 Configuration DHCP et DNS#
 
 Un Dynamic Host Configuration Protocol est un service permettant d'attribuer automatiquement une adresse IP à un hôte.
