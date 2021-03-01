@@ -18,7 +18,6 @@ Pour ce faire nous serons disposés en groupe de trois élèves.
 
 Pour commencer ce TP, nous commencerons par installer 2 ESXi qui serons la base de notre environnement de travail par la suite. On provisionnera donc une VM à laquelle s'ajoutera une ISO ESXi 7.0. Pour ce faire il suffira de sélection le bon ISO et de l'insérer dans les lecteur virtuelle puis de lancer l'installation.
 
-image::https://drive.google.com/uc?id=1Jl97K3YgVA6FGJyQoy2NITKeen-Cne-8[]
 On ajoutera une carte réseau pour chaque vlan.
 
 image::https://drive.google.com/uc?id=1RfbDcK5f56IThwKQjDQ7GIQwuloJzFo7[]
