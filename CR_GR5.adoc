@@ -70,7 +70,6 @@ image::https://drive.google.com/uc?id=1P0BNsAdM2lCx6Bwq48NWlSIbUwFkgLyB[]
 
 Les 2 AD doivent être sur le même réseau. De plus, le dns préféré de l'AD 2 doit être renseigné, il s'agit de l'IP de l'AD 1.
 
-
 === [.underline green]#3.3 Configuration DHCP et DNS#
 
 Un Dynamic Host Configuration Protocol est un service permettant d'attribuer automatiquement une adresse IP à un hôte.
@@ -103,6 +102,8 @@ VMware Tools est un ensemble de services et de modules qui activent plusieurs fo
 Il permet notamment une meilleure gestion des systèmes d'exploitation invités et une interaction des utilisateurs plus transparente.
 
 image::https://drive.google.com/uc?id=1mdwZr7x7YjcwC7csB5sZ31Y5nDVIYqSO[]
+
+image::https://drive.google.com/uc?id=1h4azCCQvtxemDopgiybFfc-zuinaG5gD[]
 
 [.underline]#VM Template :#
 
@@ -174,6 +175,8 @@ Ici on utilisera le NAS comme datastore iSCSI pour les VM de nos ESXI et comme b
 
 image::https://drive.google.com/uc?id=1bc-B2LX9RRO7Fetp3Ia3HveAzLshhGku[]
 Il suffit ensuite de créer différente partition comme choisi.
+
+Le principe est de migrer le stockage des VM sur le NAS pour quand cas de problème d'un ESXi, l'autre puisse lancer les VM sur son environnement. Les VM sont donc partager entre les deux ESXi.
 
 === [.underline black]#5.2.1 Remarque#
 
