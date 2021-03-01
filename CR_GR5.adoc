@@ -18,6 +18,7 @@ Pour ce faire nous serons disposés en groupe de trois élèves.
 
 Pour commencer ce TP, nous commencerons par installer 2 ESXi qui serons la base de notre environnement de travail par la suite. On provisionnera donc une VM à laquelle s'ajoutera une ISO ESXi 7.0. Pour ce faire il suffira de sélection le bon ISO et de l'insérer dans les lecteur virtuelle puis de lancer l'installation.
 
+image::https://drive.google.com/uc?id=1Jl97K3YgVA6FGJyQoy2NITKeen-Cne-8[]
 On ajoutera une carte réseau pour chaque vlan.
 
 image::https://drive.google.com/uc?id=1RfbDcK5f56IThwKQjDQ7GIQwuloJzFo7[]
@@ -191,7 +192,12 @@ image::https://drive.google.com/uc?id=1F55rZRNgGqjrpnHB2O3ycIQxf3wipmDR[]
 
 Remarque : 
 
-Pour joindre un domaine active directory avec une machine hôte Linux, il faudra au préalable installer et configurer les modules "samba" et "winbind". En plus de cela il faudra configurer les paramètres d'authentification Kerberos.
+Pour joindre un domaine active directory avec une machine hôte Linux, il faudra au préalable installer et configurer des modules spécifiques à notre version, la 20.04.
+On utilisera la commande "sudo apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit –y" pour installer tous ce dont nous avons besoin
+
+image::https://drive.google.com/uc?id=11prCTrWOdTwaj29QbGQPTTAq_23vkvUk[]
+
+image::https://drive.google.com/uc?id=1XFJJM3eb-trs3SaYjFLtf4enz5ZvDtql[]
 
 === [.underline green]#6.2 Test vMotion#
 
