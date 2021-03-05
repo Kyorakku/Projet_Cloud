@@ -158,11 +158,22 @@ image::https://drive.google.com/uc?id=1D7kb4GFv4npSq7KhhthQg5o3poQEtRwn[]
 
 == [.underline red]#5. FreeNAS / TrueNAS#
 
-=== [.underline green]#5.1 Installation#
-
 Un NAS à pour fonction de fournir un espace de stockage important disponible en réseau.
 
 image::https://drive.google.com/uc?id=1xtFGEB8lPqujO5P81zuu8IBfu0ucOH_R[]
+
+=== [.underline green]#5.1 Installation#
+
+Comme les précédentes installations d'équipements comme les ESXI et les Machines virtuelles, le TrueNAS est un système d'exploitation à installer sur votre NAS.
+
+Depuis l'interface Vcenter CPE: 
+1: Faire une configuration classique d'ESXI et sélectioner l'image TrueNAS dans la banque de données.
+
+image::https://drive.google.com/uc?id=1VSt7FE_VxGbHLf4AS4TUqd1wtqrDUkxD[]
+
+Puis sur le remote console de l'ESXI lancer l'installation.
+
+immage::https://drive.google.com/uc?id=1k1ULZxdH4qJgfWSPQJqYPxsr-j1qYZgP[]
 
 === [.underline green]#5.2 Configuration#
 
@@ -171,16 +182,28 @@ L'interface d'un TrueNAS se présente comme suis :
 image::https://drive.google.com/uc?id=1UC-e9kKRIdeyn_iQMhOQGeNTA6rx8tRd[]
 
 Il s'agit d'une interface web disponible sur le vlan de management sur laquelle on peut configurer les différents stockages que l'on a ajouté à la machine.
-Ici on utilisera le NAS comme datastore iSCSI pour les VM de nos ESXI et comme backup.
+Ici on utilisera le NAS en tant que banque de stockage iSCSI pour les VM de nos ESXI et comme backup.
 
 image::https://drive.google.com/uc?id=1bc-B2LX9RRO7Fetp3Ia3HveAzLshhGku[]
+
 Il suffit ensuite de créer différente partition comme choisi.
 
-Le principe est de migrer le stockage des VM sur le NAS pour quand cas de problème d'un ESXi, l'autre puisse lancer les VM sur son environnement. Les VM sont donc partager entre les deux ESXi.
+Une fois les volumes dimensionnées sur le disques il faut les partager en tant que volumes ZFS(partition de stockage) ou NFS (fichier système).
+Attention! Pour les volumes NFS il faut bien rajouter l'extention /\{filename.ext\} à la fin.
+
+image::https://drive.google.com/uc?id=1SN0FS1BhLFVQ-K1SqpA1ES3KoSvR4l6u[]
+
+Voici un profil ZFS:
+
+image::https://drive.google.com/uc?id=1XQtLT3VaS45xuOn_yNpLKsMUdwLlKoAX[]
+
+Le principe est de migrer le stockage des VM sur le NAS pour quand cas de problème d'un ESXi, l'autre puisse lancer les VM sur son environnement. Les VM sont donc partager entre les deux ESXi afin de pouvoir mettre en place la Haute disponibilité sur le vcenter.
 
 === [.underline black]#5.2.1 Remarque#
 
-A noter que le NAS ne voit pas le stockage sur lequelle est installé l'OS, de ce fait il faudra installer 2 stockage. Le premier qui contiendra l'OS et le deuxième uniquement dédier au stockage.
+A noter que le NAS ne partitionnera pas son disque système pour en créer du stockage, il faut installer un autre périphérique de stockage à coté pour le dédier au stockage.
+
+image::
 
 == [.underline red]#6. Clients Windows & Linux#
 
