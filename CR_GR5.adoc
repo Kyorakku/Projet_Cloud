@@ -18,9 +18,6 @@ Pour ce faire nous serons disposés en groupe de trois élèves.
 
 Pour commencer ce TP, nous commencerons par installer 2 ESXi qui serons la base de notre environnement de travail par la suite. On provisionnera donc une VM à laquelle s'ajoutera une ISO ESXi 7.0. Pour ce faire il suffira de sélection le bon ISO et de l'insérer dans les lecteur virtuelle puis de lancer l'installation.
 
-image::https://drive.google.com/uc?id=1Jl97K3YgVA6FGJyQoy2NITKeen-Cne-8[]
-On ajoutera une carte réseau pour chaque vlan.
-
 image::https://drive.google.com/uc?id=1RfbDcK5f56IThwKQjDQ7GIQwuloJzFo7[]
 Rien de spécial lors de l'installation, attention cependant lors de la configuration à bien choisir qu'une seul carte réseau pour le management.
 
@@ -78,6 +75,9 @@ L'installation se fait de la même façon que l'AD, il suffit de sélectionner l
 
 On pourra configuré des ranges IP disponible pour les hôtes qui viendront ce connecter au réseau mais aussi privatisé des adresses IP en fonction de l'adresse MAC de chaque carte réseau.
 
+Un DNS (Domain Name System) est un service permettant d'associer un nom à une adresse IP.
+On mettra en place des Reverse Lookup Zone qui permettront d'aller chercher directement les adresses IP sur les machines sur les réseaux définis et de faire l'association avec leurs noms.
+
 image::https://drive.google.com/uc?id=1sN4w3A6A3oNlNxbAZxq4FFH5lsYMM88n[]
 
 === [.underline green]#3.4 Configuration Routage virtuel / NAT#
@@ -85,6 +85,18 @@ image::https://drive.google.com/uc?id=1sN4w3A6A3oNlNxbAZxq4FFH5lsYMM88n[]
 Le routage virtuel servira de connexion direct à Internet en passant par un NAT.
 Celui-ci permettra aux hôtes d'accéder à l'extérieur du réseau local.
 Le serveur agira donc comme d'une route par defaut pour renvoyer les demande vers internet.
+Le service peut être installé comme les autres services.
+
+image::https://drive.google.com/uc?id=1hMSshGJzyWBxk9P18Tsdfeac4b9zWR-z[]
+image::https://drive.google.com/uc?id=1mGe4-aJ_LdPcST7hZ4Cv1GnAk5Rep-mT[]
+image::https://drive.google.com/uc?id=138s4yHIyDVgLNS_ZTlqphk-zXsAGVkvj[]
+
+Pour finaliser la configuration, il faudra choisir une interface comme étant celle qui sera publique.
+
+image::https://drive.google.com/uc?id=1dLY4SQnF3eO4mvurS9AH8wzYyq5DXL2S[]
+image::https://drive.google.com/uc?id=1SuGSJIlaCxx-fv74YrI3ftTbD6m7evfI[]
+
+A noter qu'il faudra aussi féfinir une interface comme étant celle du côté privé (la production pour nous)
 
 === [.underline green]#3.5 Test de connexion utilisateur#
 
@@ -173,7 +185,7 @@ image::https://drive.google.com/uc?id=1VSt7FE_VxGbHLf4AS4TUqd1wtqrDUkxD[]
 
 Puis sur le remote console de l'ESXI lancer l'installation.
 
-immage::https://drive.google.com/uc?id=1k1ULZxdH4qJgfWSPQJqYPxsr-j1qYZgP[]
+image::https://drive.google.com/uc?id=1k1ULZxdH4qJgfWSPQJqYPxsr-j1qYZgP[]
 
 === [.underline green]#5.2 Configuration#
 
@@ -295,3 +307,4 @@ Ensuite, il suffira de selectioner une ligne de base à attacher aux machines à
 == [.underline red]#8. Conclusion#
 
 Ce projet nous aura permit de toucher un peu à tous l'environnement vCenter, les NAS ou encore des services principaux AD, DHCP, etc... mais surtout de comprendre les interactions virtuelles entre les différents ESXi et VM.En plus de cela les tenants et aboutissants des différentes configurations virtuelles que soit au niveau réseau ou infrastructure.
+imm
