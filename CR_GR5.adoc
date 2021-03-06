@@ -211,6 +211,11 @@ image::
 
 Comme présenter plus haut, pour intégrer un hôte dans un domaine AD, il suffit de rentrer le nom de domaine et son mot de passe. Il sera ensuite renseigné sur le serveur AD
 
+On peut joindre un domaine AD de plusieurs manière différente :
+
+* En powershell par la commande "add-computer -domain nom@domain"
+* En graphique à partir des paramètres systèmes windows 10
+
 image::https://drive.google.com/uc?id=1F55rZRNgGqjrpnHB2O3ycIQxf3wipmDR[]
 
 Remarque : 
@@ -218,9 +223,18 @@ Remarque :
 Pour joindre un domaine active directory avec une machine hôte Linux, il faudra au préalable installer et configurer des modules spécifiques à notre version, la 20.04.
 On utilisera la commande "sudo apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit –y" pour installer tous ce dont nous avons besoin
 
+A noter que l'on pourra fournir un dossier local utilisateur. Pour ce faire, il faudra rajouter une ligne dans le fichier suivant "/etc/pam.d/common-session" :
+"session optional pam_mkhomedir.so skel=/etc/skel umask=077"
+
 image::https://drive.google.com/uc?id=11prCTrWOdTwaj29QbGQPTTAq_23vkvUk[]
 
 image::https://drive.google.com/uc?id=1XFJJM3eb-trs3SaYjFLtf4enz5ZvDtql[]
+
+On pourra aussi joindre le domaine AD à partie du vCenter pour attribuer des droits directement aux utilisateurs.
+
+image::https://drive.google.com/uc?id=1JztpsHYs0Nfx_ucSz8nX0jodeOWp3SQz[]
+
+Remarque : La version 7.0 du vCenter ne permet pas de joindre un AD avec certains caractères spéciaux, il faudra obligatoirement à la version supérieur 7.1 pour éviter le problème.
 
 === [.underline green]#6.2 Test vMotion#
 
@@ -270,8 +284,13 @@ Update Manager inclut :
 * Mise à niveau des logiciels tiers sur les hôtes.
 * Mise à niveau du matériel des machines virtuelles et VMware Tools.
 
+On devra tout d'abord upload l'image ISO de la MAJ sur le vCenter dans la partie Update manager
+
+image::https://drive.google.com/uc?id=1d62uadSNwxXUxgS8vENfXvqAQpjAUhDK[]
+image::https://drive.google.com/uc?id=1ryFYB6E3emDCR-1NAeJneC9D8piX0HM5[]
+
 image::https://drive.google.com/uc?id=1ybhiKzwZBFgdjWS0blzJCjVtazptcwn7[]
-Il suffira de selectioner une ligne de base à attacher aux machines à mettre à jour.
+Ensuite, il suffira de selectioner une ligne de base à attacher aux machines à mettre à jour.
 
 == [.underline red]#8. Conclusion#
 
